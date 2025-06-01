@@ -5,10 +5,13 @@ import { Hero, HeroSubTitle, HeroTitle } from "@/components/hero";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import { Spotlight } from "../ui/spotlight-new";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import heroImg1 from "@/../public/heroimg1.avif";
 import heroImg2 from "@/../public/heroimg2.avif";
 
 export function HeroSection() {
+  const router = useRouter();
+
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
@@ -25,6 +28,10 @@ export function HeroSection() {
       top: window.innerHeight,
       behavior: 'smooth'
     });
+  };
+
+  const handleJoinCommunity = () => {
+    router.push('/profile');
   };
 
   return (
@@ -66,7 +73,11 @@ export function HeroSection() {
           <HeroSubTitle className="animate-fade-in [--animation-delay:200ms] opacity-0 translate-y-[-1rem] text-white relative z-40">
             We don&apos;t just build a platform – we cultivate a thriving ecosystem for Audio Visual growth and innovation.
           </HeroSubTitle>          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center animate-fade-in [--animation-delay:200ms] relative z-0 px-4">
-            <InteractiveHoverButton type="submit" className="h-14 sm:h-16 px-6 sm:px-8 text-base sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto">
+            <InteractiveHoverButton 
+              type="button" 
+              onClick={handleJoinCommunity}
+              className="h-14 sm:h-16 px-6 sm:px-8 text-base sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
+            >
               Join Community
             </InteractiveHoverButton>
             <InteractiveHoverButton 

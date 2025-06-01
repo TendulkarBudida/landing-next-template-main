@@ -8,11 +8,17 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Logo from "../../public/logo.png";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export function Header() {
   const [hamburgerIcon, setHamhamburgerIcon] = useState<boolean>(false);
   const [isNavHidden, setIsNavHidden] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Ensure component is mounted on client side to prevent hydration mismatch
   useEffect(() => {
@@ -89,6 +95,14 @@ export function Header() {
     };
   }, [isMounted]);
 
+  const handleLogin = () => {
+    router.push('/login');
+  };
+
+  const handleSignup = () => {
+    router.push('/login');
+  };
+
   // Prevent hydration mismatch by not rendering until mounted
   if (!isMounted) {
     return (
@@ -155,33 +169,39 @@ export function Header() {
               )}
             >
               <li>
-                <a href="#">Events</a>
+                <a href="events">Events</a>
               </li>
               <li>
-                <a href="#">Tools</a>
+                <a href="tools">Tools</a>
               </li>
               <li className="md:hidden lg:block">
-                <a href="#">Careers</a>
+                <a href="careers">Careers</a>
               </li>
               <li className="md:hidden lg:block">
-                <a href="#">AVKart</a>
+                <a href="ekart">AVKart</a>
               </li>
               <li className="md:hidden lg:block">
-                <a href="#">Community</a>
+                <a href="discussions">Community</a>
               </li>
-              {/* <li>
-                <a href="#">Pricing</a>
-              </li> */}
               <li>
-                <a href="#">Training</a>
+                <a href="training">Training</a>
               </li>
               {/* Mobile buttons - only show in mobile menu */}
               <li className="md:hidden mt-4 px-6 pb-4">
                 <div className="flex flex-row gap-3">
-                  <Button size="medium" variant="secondary" className="w-full">
+                  <Button 
+                    size="medium" 
+                    variant="secondary" 
+                    className="w-full"
+                    onClick={handleLogin}
+                  >
                     Log in
                   </Button>
-                  <Button className="w-full" size="medium">
+                  <Button 
+                    className="w-full" 
+                    size="medium"
+                    onClick={handleSignup}
+                  >
                     Sign up
                   </Button>
                 </div>

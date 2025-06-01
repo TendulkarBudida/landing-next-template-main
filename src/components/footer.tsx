@@ -76,11 +76,11 @@ export const Footer = () => {
               >
                 <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Company</h4>
                 <ul className="space-y-1">
-                  <li><a href="/about" className="block text-sm text-slate-300 hover:text-white transition-colors">About</a></li>
+                  <li><a href="#" className="block text-sm text-slate-300 hover:text-white transition-colors">About</a></li>
                   <li><a href="/careers" className="block text-sm text-slate-300 hover:text-white transition-colors">Careers</a></li>
-                  <li><a href="/blog" className="block text-sm text-slate-300 hover:text-white transition-colors">Blog</a></li>
-                  <li><a href="/press" className="block text-sm text-slate-300 hover:text-white transition-colors">Events</a></li>
-                  <li><a href="/contact" className="block text-sm text-slate-300 hover:text-white transition-colors">Contact</a></li>
+                  <li><a href="/events" className="block text-sm text-slate-300 hover:text-white transition-colors">Events</a></li>
+                  <li><a href="/login" className="block text-sm text-slate-300 hover:text-white transition-colors">Login</a></li>
+                  <li><a href="/login" className="block text-sm text-slate-300 hover:text-white transition-colors">Signup</a></li>
                 </ul>
               </motion.div>
 
@@ -93,11 +93,11 @@ export const Footer = () => {
               >
                 <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Products</h4>
                 <ul className="space-y-1">
-                  <li><a href="#tools" className="block text-sm text-slate-300 hover:text-white transition-colors">Tools</a></li>
-                  <li><a href="#kart" className="block text-sm text-slate-300 hover:text-white transition-colors">Marketplace</a></li>
-                  <li><a href="#community" className="block text-sm text-slate-300 hover:text-white transition-colors">Community</a></li>
-                  <li><a href="#trainings" className="block text-sm text-slate-300 hover:text-white transition-colors">Training</a></li>
-                  <li><a href="#reviews" className="block text-sm text-slate-300 hover:text-white transition-colors">Reviews</a></li>
+                  <li><a href="tools" className="block text-sm text-slate-300 hover:text-white transition-colors">Tools</a></li>
+                  <li><a href="ekart" className="block text-sm text-slate-300 hover:text-white transition-colors">Marketplace</a></li>
+                  <li><a href="discussions" className="block text-sm text-slate-300 hover:text-white transition-colors">Community</a></li>
+                  <li><a href="training" className="block text-sm text-slate-300 hover:text-white transition-colors">Training</a></li>
+                  <li><a href="reviews" className="block text-sm text-slate-300 hover:text-white transition-colors">Reviews</a></li>
                 </ul>
               </motion.div>
 
@@ -160,7 +160,7 @@ export const Footer = () => {
           <p className="text-sm text-slate-500">
             © 2024 AV Community. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center lg:justify-end gap-6 text-sm">
+          {/* <div className="flex flex-wrap justify-center lg:justify-end gap-6 text-sm">
             <a href="/privacy" className="text-slate-500 hover:text-white transition-colors">
               Privacy
             </a>
@@ -173,7 +173,7 @@ export const Footer = () => {
             <a href="/security" className="text-slate-500 hover:text-white transition-colors">
               Security
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.footer>
