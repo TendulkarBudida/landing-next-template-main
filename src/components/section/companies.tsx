@@ -68,9 +68,14 @@ export function Companies() {
   return (
     <>
       <Container className="mt-0">
-        <p className="tracking-tight text-2xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-brand glow ">
-          Our Sponsors
-        </p>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
+          {/* <p className="text-sm lg:text-md text-brand font-bold text-center mb-2">
+            Our Sponsors
+          </p> */}
+          <h1 className="tracking-tight text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-brand">
+            Our Sponsors
+          </h1>
+        </div>
         <div className="flex items-center max-w-[70rem] mx-auto my-5 overflow-hidden mask-image-custom">
           <div className="flex animate-infinite-scroll [--animation-delay:15s]">            {sponsors.map((sponsor) => (
               <div key={sponsor.id} className="flex items-center mx-6 sm:mx-8 flex-shrink-0">

@@ -4,7 +4,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
-import ChatBot from "@/components/ui/chatbot";
+// import ChatBot from "@/components/ui/chatbot";
 
 export const metadata: Metadata = {
   title: "AV Champs - Audio Visual Community",
@@ -33,7 +33,7 @@ export default function RootLayout({
             {children}
           </main>
             <ScrollToTop />
-          <ChatBot />
+          {/* <ChatBot /> */}
         </div>
       </body>
     </html>

@@ -15,15 +15,14 @@ export function PricingComponent() {
         className="overflow-hidden py-16 text-primary lg:pb-32"
       >
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-20 max-w-4xl text-center">
-            <p className="text-md text-brand font-bold text-center mb-2">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
+            <p className="text-sm lg:text-md text-brand font-bold text-center mb-2">
               Pricing
             </p>
-            <h2 className="mb-4 text-3xl md:text-6xl font-bold tracking-tighter">
-              AV <span className="font-serif text-brand">membership</span> plans
-              that scale with you.
-            </h2>
-            <p className="text-md md:text-lg tracking-tight text-primary-text">
+            <h1 className="tracking-tight text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-primary">
+              AV <span className="text-brand glow font-serif">membership</span> plans that scale with you.
+            </h1>
+            <p className="text-lg text-primary-text px-4">
               Choose the perfect plan for your AV professional journey, from individual access to enterprise solutions.
             </p>
           </div>

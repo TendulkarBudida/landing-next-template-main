@@ -10,9 +10,25 @@ import { FacebookIcon } from "./icons/facebook";
 import { motion } from "framer-motion";
 import Logo from "../../public/logo-white.png";
 import Image from "next/image";
-import { InteractiveHoverButton } from "./ui/interactive-hover-button";
+// import { FooterButton } from './ui/footer-button';
+import { AnimatedButton } from "./ui/animated-button";
+import { useState } from "react";
 
 export const Footer = () => {
+  const [showPopover, setShowPopover] = useState(false);
+  const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPopoverPosition({
+      x: rect.left,
+      y: rect.top - 40
+    });
+    setShowPopover(true);
+    setTimeout(() => setShowPopover(false), 2000);
+  };
+
   return (
     <motion.footer
       initial={{ y: 30, opacity: 0 }}
@@ -45,7 +61,7 @@ export const Footer = () => {
             </div>
 
             <div className="flex justify-center md:justify-start gap-6 mt-8 w-full">
-              <a href="https://linkedin.com/company/avchamps" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+              <a href="https://www.linkedin.com/company/av-champs/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
                 <LinkedinIcon className="w-5 h-5 text-slate-400 hover:text-white transition-colors cursor-pointer" />
               </a>
               <a href="https://instagram.com/av.champs" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
@@ -76,11 +92,11 @@ export const Footer = () => {
               >
                 <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Company</h4>
                 <ul className="space-y-1">
-                  <li><a href="#" className="block text-sm text-slate-300 hover:text-white transition-colors">About</a></li>
-                  <li><a href="/careers" className="block text-sm text-slate-300 hover:text-white transition-colors">Careers</a></li>
-                  <li><a href="/events" className="block text-sm text-slate-300 hover:text-white transition-colors">Events</a></li>
-                  <li><a href="/login" className="block text-sm text-slate-300 hover:text-white transition-colors">Login</a></li>
-                  <li><a href="/login" className="block text-sm text-slate-300 hover:text-white transition-colors">Signup</a></li>
+                  <li><a href="#" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">About</a></li>
+                  <li><a href="/careers" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Careers</a></li>
+                  <li><a href="/events" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Events</a></li>
+                  <li><a href="/login" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Login</a></li>
+                  {/* <li><a href="/login" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Signup</a></li> */}
                 </ul>
               </motion.div>
 
@@ -93,11 +109,11 @@ export const Footer = () => {
               >
                 <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Products</h4>
                 <ul className="space-y-1">
-                  <li><a href="tools" className="block text-sm text-slate-300 hover:text-white transition-colors">Tools</a></li>
-                  <li><a href="ekart" className="block text-sm text-slate-300 hover:text-white transition-colors">Marketplace</a></li>
-                  <li><a href="discussions" className="block text-sm text-slate-300 hover:text-white transition-colors">Community</a></li>
-                  <li><a href="training" className="block text-sm text-slate-300 hover:text-white transition-colors">Training</a></li>
-                  <li><a href="reviews" className="block text-sm text-slate-300 hover:text-white transition-colors">Reviews</a></li>
+                  <li><a href="tools" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Tools</a></li>
+                  <li><a href="ekart" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Marketplace</a></li>
+                  <li><a href="discussions" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Community</a></li>
+                  <li><a href="training" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Training</a></li>
+                  <li><a href="reviews" onClick={handleLinkClick} className="block text-sm text-slate-300 hover:text-white transition-colors">Reviews</a></li>
                 </ul>
               </motion.div>
 
@@ -121,13 +137,14 @@ export const Footer = () => {
                     placeholder="Enter your email"
                     className="w-full h-[42px] px-3 text-sm bg-slate-800/60 border border-slate-700 rounded-md text-slate-200 placeholder-slate-500 outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 transition-all"
                   />
-                  <InteractiveHoverButton 
-                    type="submit" 
-                    className="w-[200px] h-[42px] px-8 rounded-md text-sm font-medium"
+                  <AnimatedButton 
+                    type="submit"
+                    className="h-10 px-6 sm:px-8 text-md sm:text-lg font-semibold whitespace-nowrap w-[150px] sm:w-auto z-40"
                   >
                     Subscribe
-                  </InteractiveHoverButton>
+                  </AnimatedButton>
                 </form>
+                
               </motion.div>
 
               {/* Social Media Icons */}
@@ -156,8 +173,8 @@ export const Footer = () => {
       
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-3 py-6">
-          <p className="text-sm text-slate-500">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-3 py-6">
+          <p className="text-sm text-slate-500 text-center">
             © 2024 AV Community. All rights reserved.
           </p>
           {/* <div className="flex flex-wrap justify-center lg:justify-end gap-6 text-sm">
@@ -176,6 +193,20 @@ export const Footer = () => {
           </div> */}
         </div>
       </div>
+
+      {/* Popover */}
+      {showPopover && (
+        <div 
+          className="fixed bg-white text-slate-900 px-4 py-2 rounded-lg shadow-lg text-sm font-medium z-50 animate-fade-in"
+          style={{
+            left: popoverPosition.x,
+            top: popoverPosition.y,
+            transform: 'translateX(-50%)'
+          }}
+        >
+          This feature is coming soon!
+        </div>
+      )}
     </motion.footer>
   );
 };

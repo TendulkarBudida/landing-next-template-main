@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import { AnimatedButton } from "../ui/animated-button";
 import { motion } from "framer-motion";
 
 export default function NewsLetter() {
@@ -14,19 +14,16 @@ export default function NewsLetter() {
     >
       <div className="relative overflow-hidden mx-4 px-4 py-14 bg-white/90 rounded-2xl border border-grey/20 shadow-lg md:px-8 md:mx-8">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <p className="text-md text-brand font-bold text-center mb-2">
+          <p className="text-sm lg:text-md text-brand font-bold text-center mb-2">
             Stay Connected
           </p>
-          <div className="space-y-3">
-            <h3 className="text-3xl md:text-6xl text-primary font-bold tracking-tighter font-geist">
-              Join the{" "}
-              <span className="text-brand font-serif">AV Community</span>
-            </h3>
-            <p className="leading-relaxed text-md md:text-lg text-primary-text">
-              Get the latest AV industry news, training updates, new tools, and exclusive 
-              opportunities delivered straight to your inbox.
-            </p>
-          </div>
+          <h1 className="tracking-tight text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-primary">
+            Join the <span className="text-brand glow font-serif">AV Community</span>
+          </h1>
+          <p className="text-lg text-primary-text px-4">
+            Get the latest AV industry news, training updates, new tools, and exclusive 
+            opportunities delivered straight to your inbox.
+          </p>
           <div className="mt-6">
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -37,9 +34,9 @@ export default function NewsLetter() {
                 placeholder="Enter your professional email"
                 className="text-primary w-full p-3 outline-none border-none active:border-none focus:outline-none focus:ring-0 focus:border-none bg-inherit text-sm"
               />
-              <InteractiveHoverButton type="submit" className="bg-slate-950 hover:bg-white text-white hover:text-slate-950 border-brand/20 hover:border-brand/40 transition-all duration-300 [&>div:first-child>div]:bg-white w-[200px] h-12">
+              <AnimatedButton type="submit" className="w-[200px] h-12">
                 Join Community
-              </InteractiveHoverButton>
+              </AnimatedButton>
             </form>
             <p className="mt-5 max-w-4xl text-md text-primary-text sm:mx-auto">
               No spam ever, only valuable AV industry insights. Read our privacy policy.

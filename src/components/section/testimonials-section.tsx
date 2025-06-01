@@ -150,16 +150,17 @@ export default function TestimonialsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16"
+          className="text-center max-w-5xl mx-auto mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-medium mb-4">
+          {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-medium mb-4">
             <span className="flex h-2 w-2 rounded-full bg-brand mr-2"></span>
             Testimonials
-          </div>          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 text-primary whitespace-nowrap">
-            What Our <span className="text-brand glow font-serif">Community Says</span>
+          </div> */}
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 text-brand whitespace-nowrap">
+            What Our Community Says
           </h2>
 
-          <p className="text-lg text-primary-text px-4">
+          <p className="text-lg text-primary-text px-4 max-w-5xl">
             Check out these testimonials to see how AV Champs is driving success across the AV landscape.
             Ready to take the next step in your journey? Sign up today and be part of a platform built to empower your future.
           </p>

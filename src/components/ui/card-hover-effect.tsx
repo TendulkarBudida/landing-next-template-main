@@ -5,6 +5,7 @@ import { useState } from "react";
 export const HoverEffect = ({
   items,
   className,
+  onCardClick,
 }: {
   items: {
     title: string;
@@ -12,20 +13,25 @@ export const HoverEffect = ({
     link: string;
   }[];
   className?: string;
+  onCardClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);  return (
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  
+  return (
     <div
       className={cn(
         "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 lg:py-10 gap-2 sm:gap-4 lg:gap-0",
         className
       )}
     >
-      {items.map((item, idx) => (<a
+      {items.map((item, idx) => (
+        <a
           href={item?.link}
           key={item?.link}
           className="relative group block p-1 sm:p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          onClick={onCardClick}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (

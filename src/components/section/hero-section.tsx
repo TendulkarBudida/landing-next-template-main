@@ -1,8 +1,8 @@
 "use client";
 
 import { Container } from "@/components/container";
-import { Hero, HeroSubTitle, HeroTitle } from "@/components/hero";
-import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import { Hero } from "@/components/hero";
+import { AnimatedButton } from "../ui/animated-button";
 import { Spotlight } from "../ui/spotlight-new";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -22,13 +22,13 @@ export function HeroSection() {
     }
   };
 
-  const scrollToNextSection = () => {
-    // Scroll to the next section after hero
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
+  // const scrollToNextSection = () => {
+  //   // Scroll to the next section after hero
+  //   window.scrollTo({
+  //     top: window.innerHeight,
+  //     behavior: 'smooth'
+  //   });
+  // };
 
   const handleJoinCommunity = () => {
     router.push('/profile');
@@ -55,58 +55,53 @@ export function HeroSection() {
         alt="hero-img1"
         className="absolute -z-50 top-[30rem] right-0 xl:right-[20rem] blur-sm animate-bounce opacity-50 xl:opacity-80"
       />
-      <Container className="overflow-visible">
-        <Hero className="relative">
-          <HeroTitle className="text-white animate-fade-in [--animation-delay:200ms] opacity-0 translate-y-[-1rem] font-semibold relative z-40">
-            Audio Visual{" "}
-            {/* <span className={`text-white ${serif.className} italic`}> */}
-              Community
-            {/* </span> */}
-            <div className="text-white animate-fade-in [--animation-delay:200ms] opacity-0 translate-y-[-1rem] font-semibold md:text-5xl text-3xl">
+      <Container className="overflow-visible px-4 md:px-0">
+        <Hero className="relative text-left md:text-center w-full">
+          <div className="animate-fade-in [--animation-delay:200ms] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-semibold text-white leading-tight tracking-tight md:leading-snug  relative z-40 text-left md:text-center">
+            Audio Visual Community
+          </div>
+          <div className="animate-fade-in [--animation-delay:200ms] text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] font-semibold text-white leading-tight tracking-tight md:leading-snug  relative z-40 text-left md:text-center">
               Built by AV Experts, For AV Professionals
-            </div>
-          </HeroTitle>
+          </div>
           <div className=""></div>
-          <HeroSubTitle className="animate-fade-in [--animation-delay:200ms] opacity-0 translate-y-[-1rem] text-white relative z-40">
+          <div className="animate-fade-in [--animation-delay:200ms] mt-6 text-md sm:text-md md:text-lg lg:text-[16px] text-slate-200 max-w-5xl mx-auto leading-relaxed font-light relative z-40 text-left md:text-center">
             Where AV experts unite to share, learn, and lead the industry forward.
-          </HeroSubTitle>
-          <HeroSubTitle className="animate-fade-in [--animation-delay:200ms] opacity-0 translate-y-[-1rem] text-white relative z-40">
+          </div>
+          <div className="animate-fade-in [--animation-delay:200ms] mt-2 mb-10 text-md sm:text-md md:text-lg lg:text-[16px] text-slate-200 max-w-8xl mx-auto leading-relaxed font-light relative z-40 text-left md:text-center">
             We don&apos;t just build a platform – we cultivate a thriving ecosystem for Audio Visual growth and innovation.
-          </HeroSubTitle>          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center animate-fade-in [--animation-delay:200ms] relative z-0 px-4">
-            <InteractiveHoverButton 
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center animate-fade-in [--animation-delay:200ms] relative z-0 px-0">
+            <AnimatedButton 
               type="button" 
               onClick={handleJoinCommunity}
-              className="h-14 sm:h-16 px-6 sm:px-8 text-base sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
+              className="h-14 sm:h-16 px-6 sm:px-8 text-lg sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
             >
               Join Community
-            </InteractiveHoverButton>
-            <InteractiveHoverButton 
+            </AnimatedButton>
+            <AnimatedButton 
               type="button" 
               onClick={scrollToServices}
-              className="h-14 sm:h-16 px-6 sm:px-8 text-base sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
+              className="h-14 sm:h-16 px-6 sm:px-8 text-lg sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
             >
               Explore Services
-            </InteractiveHoverButton>
+            </AnimatedButton>
           </div>
         </Hero>
       </Container>      {/* Scroll Down Indicator - Positioned at bottom */}
-      <div 
+      {/* <div 
         className="absolute bottom-8 left-0 right-0 flex flex-col items-center justify-center animate-fade-in [--animation-delay:400ms] opacity-0 translate-y-[-1rem] z-50 group cursor-pointer hover:scale-110 transition-all duration-300"
         onClick={scrollToNextSection}
       ><p className="text-white/60 text-sm font-medium mb-4 animate-pulse group-hover:text-white/80 transition-colors duration-300 text-center whitespace-nowrap">
           Scroll down to discover
-        </p>{/* Enhanced animated mouse with glow effect */}
+        </p>
         <div className="relative flex flex-col items-center">
-          {/* Glow ring */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-12 border border-white/20 rounded-full animate-ping opacity-30"></div>
           
-          {/* Main mouse container */}
           <div className="relative w-6 h-10 border-2 border-white/40 rounded-full flex justify-center group-hover:border-white/60 transition-colors duration-300 animate-bounce">
-            {/* Animated scroll dot with enhanced movement */}
+            
             <div className="w-1 h-3 bg-gradient-to-b from-white/90 to-white/30 rounded-full mt-2 animate-scroll-wheel"></div>
           </div>
           
-          {/* Multiple animated arrows with staggered timing */}
           <div className="flex flex-col items-center mt-2 space-y-1">
             <svg 
               className="w-3 h-3 text-white/50 animate-bounce-arrow opacity-80" 
@@ -137,7 +132,7 @@ export function HeroSection() {
             </svg>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

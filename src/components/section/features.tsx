@@ -39,34 +39,38 @@ const avServices = [
 
 export default function Features() {
   const [isMounted, setIsMounted] = useState(false);
+  const [showPopover, setShowPopover] = useState(false);
+  const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPopoverPosition({
+      x: rect.left + (rect.width / 2),
+      y: rect.top - 40
+    });
+    setShowPopover(true);
+    setTimeout(() => setShowPopover(false), 2000);
+  };
+
   if (!isMounted) {
     return (
       <div className="py-12 lg:py-16 px-4 lg:px-8 container mx-auto">
-        <p className="text-sm lg:text-md text-brand font-bold text-center mb-2"></p>
-        <h1 className="tracking-tight text-2xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-brand glow ">
-          Our Services{" "}
-          {/* <span
-            className="text-brand glow font-serif"
-            style={{
-              textShadow:
-                "0px -10px 70px rgba(59, 130, 246, 0.5), 0px -10px 70px rgba(59, 130, 246, 0.5)",
-            }}
-          >
-            AV Solutions
-          </span> */}
-        </h1>      
-        <p className="max-w-5xl text-center mx-auto text-primary-text text-sm md:text-md lg:text-lg font-medium px-4">
-          From automated workflow tools to career opportunities, marketplace solutions to community engagement, 
-          AV Champs provides everything the Audio Visual industry needs to thrive and grow.
-        </p>      {/* Hover Effect Cards with improved mobile spacing */}
-        <div className="mt-6 sm:mt-8 lg:mt-10 px-1 sm:px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-24">
-          <HoverEffect items={avServices} className="gap-2 sm:gap-4 lg:gap-0" />
-        </div>
+        <div className="text-center  max-w-5xl mx-auto mb-8 sm:mb-12 lg:mb-16">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 text-brand">
+          Our Services
+        </h2>
+        <p className="text-lg text-primary-text max-w-5xl">
+        From automated workflow tools to career opportunities, marketplace solutions to community engagement, AV Champs provides everything the Audio Visual industry needs to thrive and grow.
+        </p>
+      </div>
+      <div className="mt-6 sm:mt-8 lg:mt-10 px-1 sm:px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-24">
+        <HoverEffect items={avServices} className="gap-2 sm:gap-4 lg:gap-0" />
+      </div>
       </div>
     );
   }
@@ -80,17 +84,31 @@ export default function Features() {
       transition={{ ease: "easeIn", delay: 0.3 }}
       className="pt-12 lg:pt-16 px-4 lg:px-8 container mx-auto"
     >
-      {/* <p className="text-sm lg:text-md text-brand font-bold text-center mb-2"></p> */}
-      <h1 className="tracking-tight text-2xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-brand glow ">
-        Our Services{" "}
-      </h1>      
-      <p className="max-w-5xl text-center mx-auto text-primary-text text-sm md:text-md lg:text-lg font-medium px-4">
-        From automated workflow tools to career opportunities, marketplace solutions to community engagement, 
-        AV Champs provides everything the Audio Visual industry needs to thrive and grow.
-      </p>      {/* Hover Effect Cards with improved mobile spacing */}
-      <div className="mt-6 sm:mt-8 lg:mt-10 px-1 sm:px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-24">
-        <HoverEffect items={avServices} className="gap-2 sm:gap-4 lg:gap-0" />
+      <div className="text-center  max-w-5xl mx-auto mb-4 sm:mb-8 lg:mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6 text-brand">
+          Our Services
+        </h2>
+        <p className="text-lg text-primary-text max-w-5xl">
+          From automated workflow tools to career opportunities, marketplace solutions to community engagement, AV Champs provides everything the Audio Visual industry needs to thrive and grow.
+        </p>
       </div>
+      <div className="mt-6 sm:mt-8 lg:mt-10 px-1 sm:px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-24">
+        <HoverEffect items={avServices} className="gap-2 sm:gap-4 lg:gap-0" onCardClick={handleCardClick} />
+      </div>
+
+      {/* Popover */}
+      {showPopover && (
+        <div 
+          className="fixed bg-white text-slate-900 px-4 py-2 rounded-lg shadow-lg text-sm font-medium z-50 animate-fade-in"
+          style={{
+            left: popoverPosition.x,
+            top: popoverPosition.y,
+            transform: 'translateX(-50%)'
+          }}
+        >
+          This feature is coming soon!
+        </div>
+      )}
     </motion.div>
   );
 }

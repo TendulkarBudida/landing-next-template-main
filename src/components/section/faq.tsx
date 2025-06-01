@@ -51,15 +51,14 @@ export function FAQ() {
   return (
     <>
       <Container className="py-12 lg:py-16 px-4 lg:px-8">
-        <div className="mx-auto max-w-full text-center mb-8 lg:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
           <p className="text-sm lg:text-md text-brand font-bold text-center mb-2">
             Frequently Asked Questions
           </p>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl tracking-tighter font-semibold">
-            Everything you <span className="font-serif text-brand">need</span>{" "}
-            to know.
-          </h2>
-          <p className="mt-4 text-sm md:text-md lg:text-lg tracking-tight text-balance text-primary-text font-geist max-w-5xl mx-auto text-center px-4">
+          <h1 className="tracking-tight text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-primary">
+            Everything you <span className="text-brand glow font-serif">need</span> to know.
+          </h1>
+          <p className="text-lg text-primary-text px-4">
             Everything AV professionals need to know about joining our community,
             accessing tools, and growing their careers.
           </p>
