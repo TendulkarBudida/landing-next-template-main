@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import Logo from "../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 // import { useRouter } from "next/navigation";
 import { AnimatedButton } from "./ui/animated-button";
 
@@ -19,6 +19,7 @@ export function Header() {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [showPopover, setShowPopover] = useState(false);
   const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
+  const router = useRouter();
   // const [isOpen, setIsOpen] = useState(false);
   // const pathname = usePathname();
   // const router = useRouter();
@@ -238,14 +239,6 @@ export function Header() {
           </nav>
         </div>
 
-        <button
-          className="ml-6 md:hidden transition-transform"
-          onClick={handleToggle}
-        >
-          <span className="sr-only ">Toggle Menu</span>
-          {hamburgerIcon ? <X /> : <Menu />}
-        </button>
-
         <div className="flex items-center gap-4">
           <AnimatedButton 
             onClick={handleLinkClick}
@@ -254,23 +247,11 @@ export function Header() {
             Join Community
           </AnimatedButton>
           <button
-            onClick={() => setHamhamburgerIcon(!hamburgerIcon)}
+            onClick={handleToggle}
             className="md:hidden"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
+            <span className="sr-only">Toggle Menu</span>
+            {hamburgerIcon ? <X /> : <Menu />}
           </button>
         </div>
 
