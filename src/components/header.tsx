@@ -9,15 +9,15 @@ import { useEffect, useState } from "react";
 import Logo from "../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 export function Header() {
   const [hamburgerIcon, setHamhamburgerIcon] = useState<boolean>(false);
   const [isNavHidden, setIsNavHidden] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  // const [isOpen, setIsOpen] = useState(false);
+  // const pathname = usePathname();
   const router = useRouter();
 
   // Ensure component is mounted on client side to prevent hydration mismatch
@@ -109,7 +109,7 @@ export function Header() {
       <header className="mt-4 fixed top-0 left-0 w-full z-50 px-4 md:p-2 nav-transition">
         <Container className="flex items-center justify-between w-full p-8 rounded-full h-navigation-height border border-grey/20 bg-white shadow-lg animate-fade-in [--animation-delay:200ms]">
           <div className="flex items-center gap-12">
-            <a href="/">
+            <Link href="/">
               <Image
                 style={{
                   textShadow:
@@ -120,7 +120,7 @@ export function Header() {
                 width={100}
                 height={100}
               />
-            </a>
+            </Link>
           </div>
           <div className="hidden md:flex items-center gap-2">
             <Button size="medium" variant="secondary">
@@ -142,7 +142,7 @@ export function Header() {
     )}>
       <Container className="flex items-center justify-between w-full p-8 rounded-full h-navigation-height border border-grey/20 bg-white shadow-lg animate-fade-in [--animation-delay:200ms]">
         <div className="flex items-center gap-12">
-          <a href="/">
+          <Link href="/">
             <Image
               style={{
                 textShadow:
@@ -153,7 +153,7 @@ export function Header() {
               width={100}
               height={100}
             />
-          </a>
+          </Link>
           <nav
             className={cn(
               "transition-opacity duration-500 h-[calc(100vh_-_var(--navigation-height))] overflow-auto md:block fixed top-navigation-height mt-4 md:mt-0 left-0 w-full bg-background/90 md:relative md:h-auto md:top-0 md:w-auto md:bg-transparent md:opacity-100 md:translate-x-0 ",
@@ -169,22 +169,22 @@ export function Header() {
               )}
             >
               <li>
-                <a href="events">Events</a>
+                <Link href="/events">Events</Link>
               </li>
               <li>
-                <a href="tools">Tools</a>
+                <Link href="/tools">Tools</Link>
               </li>
               <li className="md:hidden lg:block">
-                <a href="careers">Careers</a>
+                <Link href="/careers">Careers</Link>
               </li>
               <li className="md:hidden lg:block">
-                <a href="ekart">AVKart</a>
+                <Link href="/ekart">AVKart</Link>
               </li>
               <li className="md:hidden lg:block">
-                <a href="discussions">Community</a>
+                <Link href="/discussions">Community</Link>
               </li>
               <li>
-                <a href="training">Training</a>
+                <Link href="/training">Training</Link>
               </li>
               {/* Mobile buttons - only show in mobile menu */}
               <li className="md:hidden mt-4 px-6 pb-4">
