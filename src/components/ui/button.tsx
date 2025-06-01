@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
@@ -53,9 +53,9 @@ export const Button = ({ children, variant, size, ...props }: ButtonProps) => {
 
   if ("href" in props && props.href !== undefined) {
     return (
-      <Link {...props} className={classes}>
+      <a {...props} className={classes}>
         {children}
-      </Link>
+      </a>
     );
   }
   return (

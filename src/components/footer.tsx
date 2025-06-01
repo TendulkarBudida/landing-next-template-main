@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 // import { Container } from "./container";
 import { XIcon } from "./icons/twitter";
 import { LinkedinIcon } from "./icons/linkedin";
@@ -76,11 +76,11 @@ export const Footer = () => {
               >
                 <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Company</h4>
                 <ul className="space-y-1">
-                  <li><Link href="/about" className="block text-sm text-slate-300 hover:text-white transition-colors">About</Link></li>
-                  <li><Link href="/careers" className="block text-sm text-slate-300 hover:text-white transition-colors">Careers</Link></li>
-                  <li><Link href="/blog" className="block text-sm text-slate-300 hover:text-white transition-colors">Blog</Link></li>
-                  <li><Link href="/press" className="block text-sm text-slate-300 hover:text-white transition-colors">Events</Link></li>
-                  <li><Link href="/contact" className="block text-sm text-slate-300 hover:text-white transition-colors">Contact</Link></li>
+                  <li><a href="/about" className="block text-sm text-slate-300 hover:text-white transition-colors">About</a></li>
+                  <li><a href="/careers" className="block text-sm text-slate-300 hover:text-white transition-colors">Careers</a></li>
+                  <li><a href="/blog" className="block text-sm text-slate-300 hover:text-white transition-colors">Blog</a></li>
+                  <li><a href="/press" className="block text-sm text-slate-300 hover:text-white transition-colors">Events</a></li>
+                  <li><a href="/contact" className="block text-sm text-slate-300 hover:text-white transition-colors">Contact</a></li>
                 </ul>
               </motion.div>
 
@@ -93,30 +93,13 @@ export const Footer = () => {
               >
                 <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Products</h4>
                 <ul className="space-y-1">
-                  <li><Link href="#tools" className="block text-sm text-slate-300 hover:text-white transition-colors">Tools</Link></li>
-                  <li><Link href="#kart" className="block text-sm text-slate-300 hover:text-white transition-colors">Marketplace</Link></li>
-                  <li><Link href="#community" className="block text-sm text-slate-300 hover:text-white transition-colors">Community</Link></li>
-                  <li><Link href="#trainings" className="block text-sm text-slate-300 hover:text-white transition-colors">Training</Link></li>
-                  <li><Link href="#reviews" className="block text-sm text-slate-300 hover:text-white transition-colors">Reviews</Link></li>
+                  <li><a href="#tools" className="block text-sm text-slate-300 hover:text-white transition-colors">Tools</a></li>
+                  <li><a href="#kart" className="block text-sm text-slate-300 hover:text-white transition-colors">Marketplace</a></li>
+                  <li><a href="#community" className="block text-sm text-slate-300 hover:text-white transition-colors">Community</a></li>
+                  <li><a href="#trainings" className="block text-sm text-slate-300 hover:text-white transition-colors">Training</a></li>
+                  <li><a href="#reviews" className="block text-sm text-slate-300 hover:text-white transition-colors">Reviews</a></li>
                 </ul>
               </motion.div>
-
-              {/* Column 3: Resources */}
-              {/* <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="space-y-4"
-              >
-                <h4 className="uppercase text-xs font-bold tracking-widest text-slate-400 mb-4">Resources</h4>
-                <ul className="space-y-1">
-                  <li><Link href="/help" className="block text-sm text-slate-300 hover:text-white transition-colors">Help Center</Link></li>
-                  <li><Link href="/documentation" className="block text-sm text-slate-300 hover:text-white transition-colors">Documentation</Link></li>
-                  <li><Link href="/api" className="block text-sm text-slate-300 hover:text-white transition-colors">API</Link></li>
-                  <li><Link href="/status" className="block text-sm text-slate-300 hover:text-white transition-colors">Status</Link></li>
-                  <li><Link href="/changelog" className="block text-sm text-slate-300 hover:text-white transition-colors">Changelog</Link></li>
-                </ul>
-              </motion.div> */}
 
               {/* Column 4: Stay Updated */}
               <motion.div 
@@ -178,18 +161,18 @@ export const Footer = () => {
             © 2024 AV Community. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center lg:justify-end gap-6 text-sm">
-            <Link href="/privacy" className="text-slate-500 hover:text-white transition-colors">
+            <a href="/privacy" className="text-slate-500 hover:text-white transition-colors">
               Privacy
-            </Link>
-            <Link href="/terms" className="text-slate-500 hover:text-white transition-colors">
+            </a>
+            <a href="/terms" className="text-slate-500 hover:text-white transition-colors">
               Terms
-            </Link>
-            <Link href="/cookies" className="text-slate-500 hover:text-white transition-colors">
+            </a>
+            <a href="/cookies" className="text-slate-500 hover:text-white transition-colors">
               Cookies
-            </Link>
-            <Link href="/security" className="text-slate-500 hover:text-white transition-colors">
+            </a>
+            <a href="/security" className="text-slate-500 hover:text-white transition-colors">
               Security
-            </Link>
+            </a>
           </div>
         </div>
       </div>

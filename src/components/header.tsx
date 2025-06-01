@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 import { Container } from "./container";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -95,7 +95,7 @@ export function Header() {
       <header className="mt-4 fixed top-0 left-0 w-full z-50 px-4 md:p-2 nav-transition">
         <Container className="flex items-center justify-between w-full p-8 rounded-full h-navigation-height border border-grey/20 bg-white shadow-lg animate-fade-in [--animation-delay:200ms]">
           <div className="flex items-center gap-12">
-            <Link href="/">
+            <a href="/">
               <Image
                 style={{
                   textShadow:
@@ -106,7 +106,7 @@ export function Header() {
                 width={100}
                 height={100}
               />
-            </Link>
+            </a>
           </div>
           <div className="hidden md:flex items-center gap-2">
             <Button size="medium" variant="secondary">
@@ -128,7 +128,7 @@ export function Header() {
     )}>
       <Container className="flex items-center justify-between w-full p-8 rounded-full h-navigation-height border border-grey/20 bg-white shadow-lg animate-fade-in [--animation-delay:200ms]">
         <div className="flex items-center gap-12">
-          <Link href="/">
+          <a href="/">
             <Image
               style={{
                 textShadow:
@@ -139,7 +139,7 @@ export function Header() {
               width={100}
               height={100}
             />
-          </Link>
+          </a>
           <nav
             className={cn(
               "transition-opacity duration-500 h-[calc(100vh_-_var(--navigation-height))] overflow-auto md:block fixed top-navigation-height mt-4 md:mt-0 left-0 w-full bg-background/90 md:relative md:h-auto md:top-0 md:w-auto md:bg-transparent md:opacity-100 md:translate-x-0 ",
@@ -155,25 +155,25 @@ export function Header() {
               )}
             >
               <li>
-                <Link href="#">Events</Link>
+                <a href="#">Events</a>
               </li>
               <li>
-                <Link href="#">Tools</Link>
+                <a href="#">Tools</a>
               </li>
               <li className="md:hidden lg:block">
-                <Link href="#">Careers</Link>
+                <a href="#">Careers</a>
               </li>
               <li className="md:hidden lg:block">
-                <Link href="#">AVKart</Link>
+                <a href="#">AVKart</a>
               </li>
               <li className="md:hidden lg:block">
-                <Link href="#">Community</Link>
+                <a href="#">Community</a>
               </li>
               {/* <li>
-                <Link href="#">Pricing</Link>
+                <a href="#">Pricing</a>
               </li> */}
               <li>
-                <Link href="#">Training</Link>
+                <a href="#">Training</a>
               </li>
               {/* Mobile buttons - only show in mobile menu */}
               <li className="md:hidden mt-4 px-6 pb-4">

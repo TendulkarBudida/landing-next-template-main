@@ -83,15 +83,6 @@ export default function Features() {
       {/* <p className="text-sm lg:text-md text-brand font-bold text-center mb-2"></p> */}
       <h1 className="tracking-tight text-2xl md:text-4xl lg:text-6xl text-center font-bold mb-4 text-brand glow ">
         Our Services{" "}
-        {/* <span
-          className="text-brand glow font-serif"
-          style={{
-            textShadow:
-              "0px -10px 70px rgba(59, 130, 246, 0.5), 0px -10px 70px rgba(59, 130, 246, 0.5)",
-          }}
-        >
-          AV Solutions
-        </span> */}
       </h1>      
       <p className="max-w-5xl text-center mx-auto text-primary-text text-sm md:text-md lg:text-lg font-medium px-4">
         From automated workflow tools to career opportunities, marketplace solutions to community engagement, 
