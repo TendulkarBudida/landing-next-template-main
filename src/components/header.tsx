@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import Logo from "../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 // import { useRouter } from "next/navigation";
 import { AnimatedButton } from "./ui/animated-button";
 
@@ -19,7 +19,7 @@ export function Header() {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [showPopover, setShowPopover] = useState(false);
   const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
-  const router = useRouter();
+  // const router = useRouter();
   // const [isOpen, setIsOpen] = useState(false);
   // const pathname = usePathname();
   // const router = useRouter();
