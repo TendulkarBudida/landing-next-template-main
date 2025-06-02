@@ -5,12 +5,16 @@ import { Hero } from "@/components/hero";
 import { AnimatedButton } from "../ui/animated-button";
 import { Spotlight } from "../ui/spotlight-new";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import heroImg1 from "@/../public/heroimg1.avif";
 import heroImg2 from "@/../public/heroimg2.avif";
+import { useState, useRef } from "react";
 
 export function HeroSection() {
-  const router = useRouter();
+  // const router = useRouter();
+  const [showPopover, setShowPopover] = useState(false);
+  const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
+  const joinBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
@@ -30,8 +34,15 @@ export function HeroSection() {
   //   });
   // };
 
-  const handleJoinCommunity = () => {
-    router.push('/profile');
+  const handleJoinCommunity = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPopoverPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top - 40
+    });
+    setShowPopover(true);
+    setTimeout(() => setShowPopover(false), 2000);
   };
 
   return (
@@ -56,28 +67,29 @@ export function HeroSection() {
         className="absolute -z-50 top-[30rem] right-0 xl:right-[20rem] blur-sm animate-bounce opacity-50 xl:opacity-80"
       />
       <Container className="overflow-visible px-4 md:px-0">
-        <Hero className="relative text-left md:text-center w-full">
-          <div className="animate-fade-in [--animation-delay:200ms] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-semibold text-white leading-tight tracking-tight md:leading-snug  relative z-40 text-left md:text-center">
+        <Hero className="relative text-center w-full">
+          <div className="animate-fade-in [--animation-delay:200ms] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-semibold text-white leading-tight tracking-tight md:leading-snug  relative z-40">
             Audio Visual Community
           </div>
-          <div className="animate-fade-in [--animation-delay:200ms] text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] font-semibold text-white leading-tight tracking-tight md:leading-snug  relative z-40 text-left md:text-center">
+          <div className="animate-fade-in [--animation-delay:200ms] text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[40px] font-semibold text-white leading-tight tracking-tight md:leading-snug  relative z-40">
               Built by AV Experts, For AV Professionals
           </div>
           <div className=""></div>
-          <div className="animate-fade-in [--animation-delay:200ms] mt-6 text-md sm:text-md md:text-lg lg:text-[16px] text-slate-200 max-w-5xl mx-auto leading-relaxed font-light relative z-40 text-left md:text-center">
+          <div className="animate-fade-in [--animation-delay:200ms] mt-6 text-md sm:text-md md:text-lg lg:text-[16px] text-slate-200 max-w-5xl mx-auto leading-relaxed font-light relative z-40">
             Where AV experts unite to share, learn, and lead the industry forward.
           </div>
-          <div className="animate-fade-in [--animation-delay:200ms] mt-2 mb-10 text-md sm:text-md md:text-lg lg:text-[16px] text-slate-200 max-w-8xl mx-auto leading-relaxed font-light relative z-40 text-left md:text-center">
+          <div className="animate-fade-in [--animation-delay:200ms] mt-2 mb-10 text-md sm:text-md md:text-lg lg:text-[16px] text-slate-200 max-w-8xl mx-auto leading-relaxed font-light relative z-40">
             We don&apos;t just build a platform – we cultivate a thriving ecosystem for Audio Visual growth and innovation.
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center animate-fade-in [--animation-delay:200ms] relative z-0 px-0">
-            <AnimatedButton 
-              type="button" 
+            <button
+              ref={joinBtnRef}
+              type="button"
               onClick={handleJoinCommunity}
-              className="h-14 sm:h-16 px-6 sm:px-8 text-lg sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
+              className="bg-transparent relative py-[5px] px-[15px] flex items-center justify-center text-[17px] border-white font-semibold no-underline cursor-pointer border rounded-[50px] outline-none overflow-hidden text-white transition-[color] duration-300 delay-100 ease-out text-center hover:text-white hover:border-[rgb(40,144,241)] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:m-auto before:content-[''] before:rounded-full before:block before:w-[20em] before:h-[20em] before:left-[-5em] before:text-center before:transition-[box-shadow] before:duration-500 before:ease-out before:-z-[1] hover:before:shadow-[inset_0_0_0_10em_rgb(40,144,241)] h-14 sm:h-16 px-6 sm:px-8 text-lg sm:text-lg font-semibold whitespace-nowrap w-[200px] sm:w-auto"
             >
               Join Community
-            </AnimatedButton>
+            </button>
             <AnimatedButton 
               type="button" 
               onClick={scrollToServices}
@@ -87,7 +99,22 @@ export function HeroSection() {
             </AnimatedButton>
           </div>
         </Hero>
-      </Container>      {/* Scroll Down Indicator - Positioned at bottom */}
+      </Container>
+
+      {/* Popover - matches footer style */}
+      {showPopover && (
+        <div
+          className="fixed bg-white text-slate-900 px-4 py-2 rounded-lg shadow-lg text-sm font-medium z-50 animate-fade-in"
+          style={{
+            left: popoverPosition.x,
+            top: popoverPosition.y,
+            transform: 'translateX(-50%)'
+          }}
+        >
+          This feature is coming soon!
+        </div>
+      )}
+      {/* Scroll Down Indicator - Positioned at bottom */}
       {/* <div 
         className="absolute bottom-8 left-0 right-0 flex flex-col items-center justify-center animate-fade-in [--animation-delay:400ms] opacity-0 translate-y-[-1rem] z-50 group cursor-pointer hover:scale-110 transition-all duration-300"
         onClick={scrollToNextSection}

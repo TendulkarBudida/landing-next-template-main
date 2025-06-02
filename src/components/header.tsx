@@ -5,7 +5,7 @@ import { Container } from "./container";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Logo from "../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +19,7 @@ export function Header() {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [showPopover, setShowPopover] = useState(false);
   const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
+  const navRef = useRef<HTMLDivElement | null>(null);
   // const router = useRouter();
   // const [isOpen, setIsOpen] = useState(false);
   // const pathname = usePathname();
@@ -98,6 +99,19 @@ export function Header() {
       if (scrollThrottle) clearTimeout(scrollThrottle);
     };
   }, [isMounted]);
+
+  useEffect(() => {
+    if (!hamburgerIcon) return;
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setHamhamburgerIcon(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [hamburgerIcon]);
 
   const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -184,6 +198,7 @@ export function Header() {
             />
           </Link>
           <nav
+            ref={navRef}
             className={cn(
               "transition-all duration-300 ease-in-out h-auto overflow-auto md:block fixed top-navigation-height mt-4 md:mt-0 right-0 w-[280px] md:w-auto md:relative md:h-auto md:top-0 md:bg-transparent md:opacity-100 md:translate-x-0 rounded-2xl transform origin-top-right",
               hamburgerIcon

@@ -1,5 +1,5 @@
 import { Footer } from "@/components/footer";
-import ScrollZoom from "@/components/hero-image";
+// import ScrollZoom from "@/components/hero-image";
 import { Companies } from "@/components/section/companies";
 // import { FAQ } from "@/components/section/faq";
 import Features from "@/components/section/features";
@@ -8,17 +8,17 @@ import { HeroSection } from "@/components/section/hero-section";
 // import { PricingComponent } from "@/components/section/pricing";
 // import { Testimonial } from "@/components/section/testimonials";
 import TestimonialsSection from "@/components/section/testimonials-section";
-import { ContactSection } from "@/components/section/contact";
+import { ContactUsClassic } from "@/components/section/contact-classic";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
       <HeroSection />
-      <ScrollZoom />
+      {/* <ScrollZoom /> */}
       <Companies />
       <Features />
       <TestimonialsSection />
-      <ContactSection />
+      <ContactUsClassic />
       {/* <Testimonial /> */}
       {/* <PricingComponent /> */}
       {/* <FAQ /> */}

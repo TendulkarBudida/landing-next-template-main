@@ -67,7 +67,7 @@ const sponsors = [
 export function Companies() {
   return (
     <>
-      <Container className="mt-0">
+      <Container className="mt-16">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
           {/* <p className="text-sm lg:text-md text-brand font-bold text-center mb-2">
             Our Sponsors
